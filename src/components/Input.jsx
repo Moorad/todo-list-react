@@ -1,6 +1,6 @@
-import React, { Component } from "react";
+import React, { Component } from 'react';
 
-var server = "http://localhost:4000";
+var server = 'http://localhost:4000';
 
 class Input extends Component {
 	constructor(props) {
@@ -24,7 +24,7 @@ class Input extends Component {
 				</div>
 				<div
 					className="popup"
-					style={{ top: this.state.isHidden ? "-100%" : "0" }}
+					style={{ top: this.state.isHidden ? '-100%' : '0' }}
 				>
 					<button className="close" onClick={this.handleClick}>
 						×
@@ -47,9 +47,8 @@ class Input extends Component {
 	handleSubmit = e => {
 		e.preventDefault();
 		var data = this.textInput.current.value;
-		console.log(data);
 		fetch(`${server}/insert?data=${data}`, {
-			method: "GET"
+			method: 'GET'
 		});
 		this.setState({ isHidden: !this.state.isHidden });
 		window.location.reload();
