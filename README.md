@@ -12,10 +12,10 @@ more complete.
 ## Running
 
 For now all ou have to do is clone this repo by putting this command in your terminal:
-`git clone https://github.com/mooradal/todo-list-react.git`
+```git clone https://github.com/mooradal/todo-list-react.git```
 
 Then you only need to run this:
-`npm start`
+```npm start```
 
 and the web app should be working.
 
