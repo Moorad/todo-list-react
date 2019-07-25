@@ -47,7 +47,7 @@ class Input extends Component {
 	handleSubmit = e => {
 		e.preventDefault();
 		var data = this.textInput.current.value;
-		fetch(`${server}/insert?data=${data}`, {
+		fetch(`${server}/insert?data=${data}&pjct=${this.props.project}`, {
 			method: 'GET'
 		});
 		this.setState({ isHidden: !this.state.isHidden });

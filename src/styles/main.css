@@ -22,13 +22,15 @@ button {
 	font-size: 1.8rem;
 	width: 3rem;
 	height: 3rem;
-	border-radius: 50%;
+	border-radius: 4px;
 	border: 0;
 	background: #232323;
 	color: white;
 	position: absolute;
-	right: 3rem;
-	top: 3rem;
+	right: 15px;
+	top: 15px;
+	z-index: 100;
+
 }
 
 .add:hover {
@@ -36,16 +38,19 @@ button {
 }
 
 .todo-container {
-	background: rgba(0, 0, 0, 0.07);
+	background: white;
 	transition: 0.2s;
 	border-right: 15px solid transparent;
 	padding: 1.5rem 1rem;
 	display: flex;
+	margin: 1rem;
+	box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.1);
 }
 
 .todo-container:hover {
-	background: rgba(0, 0, 0, 0.1);
-	border-right-color: #0072ff;
+	/* background: rgba(0, 0, 0, 0.1);
+	border-right-color: #0072ff; */
+	box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.2);
 }
 
 .container {
@@ -53,7 +58,6 @@ button {
 	width: 75%;
 	display: inline-block;
 	float: left;
-	position: relative;
 }
 
 .section-container {
@@ -67,9 +71,12 @@ button {
 	border: 0;
 	font-size: 2.5rem;
 	font-weight: 700;
-	margin: 1rem 0;
 	background: transparent;
 	color: white;
+
+	margin: 1rem;
+
+
 }
 
 .popup {
@@ -116,6 +123,7 @@ button {
 }
 
 .all-todos-container {
+	margin-top: 80px;
 	overflow: auto;
 	height: 87.5vh;
 }
@@ -224,4 +232,25 @@ button {
 .title-container {
 	background: linear-gradient(45deg, #0072ff, #00c6ff);
 	width: 100vw;
+	height: 80px;
+	position: fixed;
+	z-index: 10;
+}
+
+.projects-container {
+	height: calc(100vh - 80px - 280px);
+	background: black;
+	width: 90%;
+	margin: 1rem auto;
+	background: white;
+
+	box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.1);
+}
+
+.project {
+	padding: 1rem;
+}
+
+.project:hover {
+	background: rgba(0, 0, 0, 0.1)
 }

@@ -3,6 +3,7 @@ import TodoBox from './todoBox';
 import Input from './Input';
 import Title from './Title';
 import Stats from './Stats';
+import Projects from './Projects';
 import '../styles/main.css';
 import config from '../config';
 
@@ -10,20 +11,22 @@ class App extends Component {
 	constructor(props) {
 		super(props);
 		this.state = {
-			todo: null
+			todos: null,
+			currentProject: ''
 		};
 	}
 	render() {
 		return (
 			<div>
-				<div className="container">
-					<Title something="My List" />
-					<Input />
-					<div className="all-todos-container">{this.state.todo}</div>
+				<div className="container" style={{ width: window.innerWidth < 800 ? '100%' : '75%' }}>
+					<Title project={this.state.currentProject} />
+					<Input project={this.state.currentProject} />
+					<div className="all-todos-container">{this.state.todos}</div>
 				</div>
-				<div className="section-container">
-					<Stats />
-				</div>
+				{window.innerWidth > 800 ? <div className="section-container">
+					<Stats project={this.state.currentProject} />
+					<Projects projects={this.state.allProject} />
+				</div> : <div>Unavailable</div>/*<HamburgerMenu/>*/}
 			</div>
 		);
 	}
@@ -34,8 +37,11 @@ class App extends Component {
 		})
 			.then(res => res.json())
 			.then(json => {
+				var keys = Object.keys(json);
+
 				this.setState({
-					todo: json.todo.map(x => {
+					currentProject: keys[0],
+					todos: json[keys[0]].map(x => {
 						return <TodoBox data={x} key={x.id} />;
 					})
 				});
